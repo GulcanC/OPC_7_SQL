@@ -49,7 +49,7 @@ const onListening = () => {
 };
 
 // configure the port, call the function normalizePort, pass 3000 as a string
-const port = normalizePort(process.env.PORT || "3000");
+const port = normalizePort(process.env.PORT || "5000");
 app.set("port", port);
 
 // attach the server for the error and for the listener, start the server
