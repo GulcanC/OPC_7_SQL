@@ -16,6 +16,7 @@ const db = mysql.createConnection({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
   dialect: process.env.DIALECT,
+  root: process.env.ROOT,
 });
 
 db.connect(function (error) {
