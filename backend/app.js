@@ -2,6 +2,20 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
+const Sequilize = require("sequelize");
+const sequilize = new Sequilize("groupmania_sql", "root", "1571256,Gaps", {
+  host: "localhost",
+  dialect: "mysql",
+});
+
+sequilize
+  .authenticate()
+  .then(() => {
+    console.log("yes");
+  })
+  .catch((err) => {
+    console.log("no");
+  });
 
 const app = express();
 

@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const baseName = path.basename(__filename);
 const env = process.env.NODE8ENV || "development";
-const config = require(__dirname + "/../database/database.js")[env];
+const config = require(__dirname + "/../config/config.js")[env];
 const database = {};
 const sequelize = new Sequelize({ ...config });
 
