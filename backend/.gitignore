@@ -1,4 +1,5 @@
 node_modules
 vars/.env/
+config/config.json/
 images
 Connection sql.docx

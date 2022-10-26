@@ -1,5 +1,4 @@
-const dotenv = require("dotenv").config();
-
+require("dotenv").config({ path: "./vars/.env" });
 module.exports = {
   development: {
     username: process.env.DB_USERNAME,
