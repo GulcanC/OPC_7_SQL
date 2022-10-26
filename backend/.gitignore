@@ -1,4 +1,4 @@
 node_modules
-.env
+vars/.env/
 images
 Connection sql.docx
