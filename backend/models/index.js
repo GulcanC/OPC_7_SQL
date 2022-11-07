@@ -11,7 +11,7 @@ const db = {};
 
 // Database selection
 const sequelize = new Sequelize({ ...config });
-console.log(sequelize);
+
 // Authentication
 sequelize
   .authenticate()
