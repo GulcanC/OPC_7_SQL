@@ -3,7 +3,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
 const Sequilize = require("sequelize");
-require("dotenv").config({ path: "./vars/.env" });
+require("dotenv").config({ path: "./.env" });
 
 const sequilize = new Sequilize(
   process.env.DB_NAME,
