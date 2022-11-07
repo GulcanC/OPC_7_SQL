@@ -23,3 +23,6 @@ app.all("*", (req, res, next) => {
 
 // Export app
 module.exports = app;
+
+// HEROKU
+// https://dashboard.heroku.com/upgrade
