@@ -1,4 +1,4 @@
 node_modules
-vars/.env/
+.env
 config/config.json/
 images
