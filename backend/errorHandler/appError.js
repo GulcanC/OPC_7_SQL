@@ -1,16 +1,3 @@
-/* class AppError extends Error {
-  constructor(message, statusCode) {
-    super(message);
-
-    this.statusCode = statusCode;
-    this.status = `${statusCode}`.startsWith("4") ? "fail" : "error";
-    this.isOperational = true;
-
-    Error.captureStackTrace(this, this.constructor);
-  }
-}
-module.exports = AppError; */
-
 // https://stackoverflow.com/questions/62836633/how-to-set-error-name-in-extended-class-error-in-node-js
 
 class AppError extends Error {

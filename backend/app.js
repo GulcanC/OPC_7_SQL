@@ -7,9 +7,9 @@ const app = express();
 const db = require("./models");
 const helmet = require("helmet");
 
-const AppError = require("./utils/appError");
-const globalErrorHandler = require("./utils/globalErrorHandler");
-const databaseError = require("./utils/databaseError");
+const AppError = require("./errorHandler/appError");
+const globalErrorHandler = require("./errorHandler/globalErrorHandler");
+const databaseError = require("./errorHandler/databaseError");
 
 // Utilisation de sequelize
 db.sequelize
