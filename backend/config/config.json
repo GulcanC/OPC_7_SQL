@@ -1,9 +1,0 @@
-{
-  "development": {
-    "username": "root",
-    "password": "1571256,Gaps",
-    "database": "groupmania_sql",
-    "host": "localhost",
-    "dialect": "mysql"
-  }
-}
