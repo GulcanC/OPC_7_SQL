@@ -17,7 +17,7 @@ const signupSchema = Yup.object({
   email: Yup.string()
     .trim()
     .required("⚠️ Provide a valid e-mail address!")
-    .matches(regExEmail, "⚠️ Last name must be between 3 and 10 characters!"),
+    .matches(regExEmail, "⚠️ Format: xxxxx@gmail.com"),
   password: Yup.string()
     .trim()
     .required("⚠️ Provide a valid password!")
