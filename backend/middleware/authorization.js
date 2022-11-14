@@ -2,12 +2,7 @@ const AppError = require("../utils/appError");
 const { User, Comment, Article } = require("../models");
 
 // catchAsync
-const catchAsync = (fn) => {
-  return (req, res, next) => {
-    fn(req, res, next).catch((err) => next(err));
-  };
-};
-
+const catchAsync = require("../middleware/asyncHandler");
 module.exports = (Model) =>
   catchAsync(async (req, res, next) => {
     const reqUserId = req.auth.userId;
