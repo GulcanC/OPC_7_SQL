@@ -11,6 +11,9 @@ const AppError = require("./errorHandler/appError");
 const globalErrorHandler = require("./errorHandler/globalErrorHandler");
 const databaseError = require("./errorHandler/databaseError");
 
+// ROUTES
+const authRoutes = require("./routes/auth-routes");
+
 // Utilisation de sequelize
 db.sequelize
   .authenticate()
@@ -29,6 +32,7 @@ app.use(cors({ origin: "http://localhost:5000", credentials: true }));
 
 // ROUTES
 app.use("/images", express.static(path.join(__dirname, "images")));
+app.use("/api/auth", authRoutes);
 
 // ERROR HANDLING
 app.all("*", (req, res, next) => {
