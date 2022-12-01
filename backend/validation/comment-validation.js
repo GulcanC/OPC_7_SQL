@@ -5,7 +5,7 @@ const catchAsync = require("../middleware/asyncHandler");
 const commentSchema = Yup.object({
   content: Yup.string()
     .trim()
-    .required('⚠️ Write a comment!"')
+    .required("⚠️ Write a comment!")
     .min(3, "⚠️ The comment must contain at least 3 characters!")
     .max(1000, "⚠️ The comment must contain max. 1000 characters!"),
 });

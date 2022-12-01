@@ -13,6 +13,7 @@ const articleSchema = Yup.object({
     .min(3, "⚠️ The title must contain at least 3 characters!")
     .max(1000, "⚠️ The title must contain max. 1000 characters!"),
 });
+
 exports.articleValidation = catchAsync(async (req, res, next) => {
   const value = await articleSchema.validate(
     { ...req.body },

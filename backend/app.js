@@ -33,7 +33,7 @@ app.use("/images", express.static(path.join(__dirname, "images")));
 // ERROR HANDLING
 app.all("*", (req, res, next) => {
   next(
-    new AppError(`Not poosible to find ${req.originalUrl} on this server`, 404)
+    new AppError(`Not possible to find ${req.originalUrl} on this server`, 404)
   );
 });
 app.use(globalErrorHandler);
