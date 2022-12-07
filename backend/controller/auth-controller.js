@@ -2,10 +2,9 @@ const bcrypt = require("bcrypt");
 const cryptojs = require("crypto-js");
 const jwt = require("jsonwebtoken");
 const asyncHandler = require("../middleware/asyncHandler");
-const appErrorHandler = require("../errorHandler/appError");
+const appError = require("../errorHandler/appError");
 
 const { User } = require("../models");
-const AppError = require("../errorHandler/appError");
 console.log(User);
 
 // SIGNUP
@@ -34,10 +33,10 @@ exports.signup = asyncHandler(async (req, res, next) => {
   }).then(([user, created]) => {
     console.log(created);
     if (created) {
-      res.status(201).json({ message: "✅ User created!" });
+      res.status(201).json({ message: "✅ User created!", user });
     } else {
       return next(
-        new AppError(
+        new appError(
           "This account already exist, please sign in or use a new email address",
           400
         )
@@ -46,6 +45,7 @@ exports.signup = asyncHandler(async (req, res, next) => {
   });
 });
 
+// LOGIN
 exports.login = asyncHandler(async (req, res, next) => {
   console.log("🎉🎉🎉USER LOGIN🎉🎉🎉");
   console.log(req.body);
