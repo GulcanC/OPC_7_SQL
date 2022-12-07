@@ -1,5 +1,5 @@
 const Yup = require("yup");
-const catchAsync = require("../middleware/asyncHandler");
+const asyncHandler = require("../middleware/asyncHandler");
 const regExText = /^[a-zA-Z\s\'\-]{3,10}$/;
 
 const userSchema = Yup.object({
@@ -13,7 +13,7 @@ const userSchema = Yup.object({
     .matches(regExText, "⚠️ Last name must be between 3 and 10 characters!"),
 });
 
-exports.userValidation = catchAsync(async (req, res, next) => {
+exports.userValidation = asyncHandler(async (req, res, next) => {
   const dataToValidate = req.body;
   const value = await userSchema.validate(
     { ...dataToValidate },

@@ -48,3 +48,29 @@ exports.getAllUsers = asyncHandler(async (req, res, next) => {
     res.status(200).json({ users });
   }
 });
+
+// MODIFY USER
+exports.modifyUser = asyncHandler(async (req, res, next) => {
+  const { userId } = req.params;
+  const modifiedData = req.body;
+
+  if (req.file) {
+    imageUrl = `${req.protocol}://${req.get("host")}/images/user-image/${
+      req.file.filename
+    }`;
+  }
+
+  const user = await User.update(
+    { ...modifiedData, profilPicture: imageUrl },
+    { where: { id: userId }, returning: true, plain: true }
+  );
+
+  if (user[1] !== 0) {
+    res.status(200).json({
+      message: "✅ User information has been succefully modified!",
+      user,
+    });
+  } else {
+    return next(new appError("⛔️ No user found matching this ID", 404));
+  }
+});

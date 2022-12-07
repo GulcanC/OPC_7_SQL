@@ -1,4 +1,4 @@
-const AppError = require("../utils/appError");
+const appError = require("../errorHandler/appError");
 const { User, Comment, Article } = require("../models");
 
 // catchAsync
@@ -23,12 +23,12 @@ module.exports = (Model) =>
       },
     });
     if (!object) {
-      return next(new AppError("Element can not be found with this ID", 404));
+      return next(new appError("Element can not be found with this ID", 404));
     }
     const ownerId = Model === User ? object.id : object.userId;
 
     if (ownerId !== reqUserId && !hasAccess) {
-      return next(new AppError("Request is not authorized", 403));
+      return next(new appError("Request is not authorized", 403));
     }
     next();
   });
