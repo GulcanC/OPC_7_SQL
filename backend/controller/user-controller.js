@@ -51,8 +51,8 @@ exports.getAllUsers = asyncHandler(async (req, res, next) => {
 
 // MODIFY USER
 exports.modifyUser = asyncHandler(async (req, res, next) => {
-  const { userId } = req.params;
   const modifiedData = req.body;
+  const { userId } = req.params;
 
   if (req.file) {
     imageUrl = `${req.protocol}://${req.get("host")}/images/user-image/${
@@ -72,5 +72,18 @@ exports.modifyUser = asyncHandler(async (req, res, next) => {
     });
   } else {
     return next(new appError("⛔️ No user found matching this ID", 404));
+  }
+});
+
+// DELETE USER
+exports.deleteUser = asyncHandler(async (req, res, next) => {
+  const { userId } = req.params;
+  const deletedUser = await User.destroy({
+    where: { id: userId },
+  });
+  if (deletedUser === 1) {
+    res.status(200).json({ message: " ✅ User deleted successfully!" });
+  } else {
+    return next(new appError("⛔️ User not found!", 404));
   }
 });

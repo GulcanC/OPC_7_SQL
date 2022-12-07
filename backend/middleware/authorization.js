@@ -1,10 +1,10 @@
 const appError = require("../errorHandler/appError");
 const { User, Comment, Article } = require("../models");
 
-// catchAsync
-const catchAsync = require("../middleware/asyncHandler");
+// asyncHandler
+const asyncHandler = require("../middleware/asyncHandler");
 module.exports = (Model) =>
-  catchAsync(async (req, res, next) => {
+  asyncHandler(async (req, res, next) => {
     const reqUserId = req.auth.userId;
     const hasAccess = req.auth.isAuthorized;
     let objectId;
@@ -23,7 +23,7 @@ module.exports = (Model) =>
       },
     });
     if (!object) {
-      return next(new appError("Element can not be found with this ID", 404));
+      return next(new appError("Data can not be found with this ID", 404));
     }
     const ownerId = Model === User ? object.id : object.userId;
 

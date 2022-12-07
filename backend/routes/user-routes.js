@@ -10,6 +10,7 @@ const { userValidation } = require("../validation/user-validation");
 
 const multer = require("../middleware/multer");
 const sharp = require("../middleware/sharp");
+const fullAccess = require("../middleware/fullAccess");
 
 const { User } = require("../models");
 
@@ -25,5 +26,11 @@ router.put(
   userValidation,
   userController.modifyUser
 );
-
+router.delete(
+  "/:userId",
+  authentication,
+  fullAccess("admin"),
+  authorization(User),
+  userController.deleteUser
+);
 module.exports = router;
