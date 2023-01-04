@@ -1,12 +1,12 @@
 import React from "react";
 import { useState, useEffect, createContext } from "react";
-import jwtDecode from '"jwt-decode';
+import jwtDecode from "jwt-decode";
 
 // export React.createContext
 
-const ReactContext = createContext(null);
+export const ReactContext = createContext(null);
 
-const ContextProvider = ({ children }) => {
+export const ContextProvider = ({ children }) => {
   const token = localStorage.getItem("token");
 
   const [currentUser, setCurrentUser] = useState(() => {
@@ -72,5 +72,3 @@ const ContextProvider = ({ children }) => {
     <ReactContext.Provider value={value}>{children}</ReactContext.Provider>
   );
 };
-
-export default ContextProvider;
