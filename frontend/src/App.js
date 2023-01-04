@@ -10,6 +10,7 @@ import { ContextProvider } from "./reactContext/ReactContext";
 import { AxiosInterceptor } from "./api/Axios";
 
 import Auth from "./pages/Auth";
+import Spinner from "./components/Spinner/Spinner";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Router>
             <Routes>
               <Route path="/auth" element={<Auth />} />
+              <Route path="/spinner" element={<Spinner />} />
             </Routes>
           </Router>
         </ContextProvider>

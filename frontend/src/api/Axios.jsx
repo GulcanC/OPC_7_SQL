@@ -4,7 +4,7 @@ import { useState, useEffect, useContext } from "react";
 // import ReactContext
 import { ReactContext } from "../reactContext/ReactContext";
 //import Token modal component
-import TokenModal from "../components/TokenModal";
+import TokenModal from "../components/Auth/TokenModal";
 
 const getBaseUrl = () => {
   return process.env.GC_APP_BASE_URL
